@@ -1,0 +1,46 @@
+/*
+Theme Name: shabbir
+Theme URI: http://shabbir.me/
+Author: Mostafiz Shabbir
+Author URI: http://shabbir.me/
+Description: This is WordPress theme for shabbir.me portfolio website. All right reserved by Mostafiz shabbir. 
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: shabbir
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+*/
+
+
+.img_blog .post-thumbnail img{
+	width: 100%;
+	height: 100%;
+}
+.post-thumbnail img{
+	width: 100%;
+	height: 100%;
+}
+.entry-content {
+    padding: 50px 0;
+}
+.porfile-pic{
+	width: 500px;
+	height: 400px;
+}
+.porfile-pic img{
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+    object-position: 50% 50%;
+}
+
+.work_detail a{
+	color: #fff !important;
+	margin-top: 10px;
+	display: block;
+}
+
+.port-img img{
+	height: 240px;
+	width: 100%;
+}
