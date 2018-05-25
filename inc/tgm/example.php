@@ -59,8 +59,6 @@ function ready_register_required_plugins() {
 	 */
 	$plugins = array(
 
-		
-		
 		[
 			'name'				=> 'Advanced Custom Fields',
 			'slug'				=> 'advanced-custom-fields-pro',
