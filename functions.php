@@ -44,9 +44,15 @@ if ( ! function_exists( 'shabbir_setup' ) ) :
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
-			'menu-1' => esc_html__( 'Primary', 'shabbir' ),
+			'main-menu' => esc_html__( 'Main Menu', 'shabbir' ),
 		) );
-
+		function default_menu(){
+			
+			echo '<ul class="navbar-nav ml-auto">';
+			echo '<li><a href="'.home_url().'">Home</a></li>';
+			echo '</ul>';
+			
+		}
 		/*
 		 * Switch default core markup for search form, comment form, and comments
 		 * to output valid HTML5.
@@ -79,7 +85,20 @@ if ( ! function_exists( 'shabbir_setup' ) ) :
 			'flex-width'  => true,
 			'flex-height' => true,
 		) );
-		
+		/* ACF OPTIONS PAGE */
+		if(function_exists('acf_add_options_page')) {
+			$option_page = acf_add_options_page(
+				array(
+					'page_title'  => 'Theme Settings',
+					'menu_title'  => 'Theme Settings',
+					'menu_slug'   => 'theme-settings',
+					'capability'  => 'edit_posts',
+					'redirect'    => true,
+					'position' => 61,
+					'icon_url'    => 'dashicons-layout'
+				)
+			);
+		}
 		/* Register Post Type with category */
 		
 		$labels = array(
@@ -255,7 +274,7 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 /* customize login screen */
 function mbthirty_custom_login_page() {
     echo '<style type="text/css">
-        h1 a { background-image:url("'. get_stylesheet_directory_uri().'/images/logo.png") !important; height: 90px !important; width: 100px !important; margin: 0 auto !important; }
+        h1 a { background-image:url("'. get_stylesheet_directory_uri().'/images/logo.png") !important; height: 90px !important; width: 200px !important; margin: 0 auto !important; }
 		h1 a:focus { outline: 0 !important; box-shadow: none; }
         body.login { background-image:url("'. get_stylesheet_directory_uri().'/images/banner.png") !important; background-repeat: no-repeat !important; background-attachment: fixed !important; background-position: center !important; background-size: cover !important; position: relative; z-index: 999;}
   		body.login:before { background-color: rgba(0,0,0,0.7); position: absolute; width: 100%; height: 100%; left: 0; top: 0; content: ""; z-index: -1; }
@@ -265,6 +284,9 @@ function mbthirty_custom_login_page() {
 		.login form .input, .login form input[type=checkbox], .login input[type=text] {
 			background: transparent !important;
 			color: #ddd;
+		}
+		.login h1 a {
+			background-size: 215px;
 		}
 		.login label {
 			color: #DDD !important;

@@ -19,12 +19,17 @@
         <meta name="keywords" content="" />
         <meta name="author" content="SRBThemes" />
 
-        <link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/images/favicon.ico">
-
+		
+		<?php $favicon_uploader = get_field('favicon_uploader','option'); 
+			if($favicon_uploader): ?>
+        <link rel="shortcut icon" href="<?php echo $favicon_uploader['url']; ?>">
+		<?php endif; ?>
+		
+		
 	<?php wp_head(); ?>
     </head>
 
-    <body>
+    <body <?php body_class(); ?>>
         <!-- Loader -->
         <div id="preloader">
             <div id="status">
@@ -42,39 +47,33 @@
 		<?php endif; ?>
             <div class="container">
 
-                <a class="navbar-brand pt-0 logo" href="#">
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/logo.png" alt="" class="img-fluid logo-light">
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/logo-dark.png" alt="" class="img-fluid logo-dark">
+                <a class="navbar-brand pt-0 logo" href="<?php echo home_url(); ?>">
+					<?php $logo_upload_light = get_field('logo_upload_light','option'); 
+					if($logo_upload_light): ?>
+						<img src="<?php echo $logo_upload_light['url']; ?>" alt="<?php echo $logo_upload_light['title']; ?>" class="img-fluid logo-light">
+					<?php endif; ?>
+					
+					<?php $logo_upload_dark = get_field('logo_upload_dark','option'); 
+					if($logo_upload_dark): ?>
+                    <img src="<?php echo $logo_upload_dark['url']; ?>" alt="<?php echo $logo_upload_dark['title']; ?>" class="img-fluid logo-dark">
+					<?php endif; ?>
+					
+					
                 </a>
 
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#shabbirMenu" aria-controls="shabbirMenu" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="mdi mdi-menu"></span>
                 </button>
 
-                <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#home">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#about">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#services">Services</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#client">Client</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#work">Portfolio</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#blog">Blog</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#contact">Contact</a>
-                        </li>
-                    </ul>
+                <div class="collapse navbar-collapse" id="shabbirMenu">
+					<?php wp_nav_menu(array(
+						'theme_location'		=> 'main-menu',
+						'menu_class'			=> 'navbar-nav ml-auto',
+						'menu_id'				=> ' ',
+						'fallback_cb'			=> 'default_menu',
+						'container'				=> ' ',
+					)); ?>
+                 
                 </div>
             </div>
         </nav>

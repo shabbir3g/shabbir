@@ -23,7 +23,7 @@ $page_id     = get_queried_object_id();
 							<?php endif; ?>
 							
 							<?php $typing_text_s = get_field('typing_text_s');
-							if('typing_text_s'): ?>
+							if( $typing_text_s ): ?>
 							<h1 class="header-name text-white text-capitalize mb-0">I'M <span class="element font-weight-bold" data-elements="
 							<?php foreach($typing_text_s as $typing_single): ?>
 							<?php echo $typing_single['typing_text'].', '; ?>
@@ -34,12 +34,12 @@ $page_id     = get_queried_object_id();
 							"></span></h1>
 							<?php endif; ?>
 							<?php $header_banner_text = get_field('header_banner_text');
-							if('header_banner_text'): ?>
+							if($header_banner_text): ?>
 							<p class="text-white mx-auto header-desc mt-4"><?php echo $header_banner_text; ?></p>
 							<?php endif; ?>
 							
 							<?php $call_to_action_button = get_field('call_to_action_button');
-							if('call_to_action_button'): ?>
+							if($call_to_action_button): ?>
 							<div class="mt-4 pt-2">
 								<a target="_blank" href="<?php echo $call_to_action_button['url']; ?>" class="btn btn-outline-custom btn-round"><?php echo $call_to_action_button['title']; ?></a>
 							</div>
@@ -54,6 +54,33 @@ $page_id     = get_queried_object_id();
 <!-- END HOME -->
 <?php endif; ?>
 
+
+
+ <!-- START HOME 
+        <section class="section header-bg-img h-100vh clippath_none" id="home">
+            <div class="bg-overlay"></div>
+            <div class="header-table">
+                <div class="header-table-center">
+                    <div class="container position-relative z-index">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-12">
+                                <div class="text-center header-content mx-auto">
+                                    <h4 class="text-white first-title mb-4">Welcome</h4>
+                                    <h1 class="header-name text-white text-capitalize mb-0">I'M <span class="element font-weight-bold" data-elements="Kerri Deo.,A Graphic Designer.,A Photographer."></span></h1>
+                                    <p class="text-white mx-auto header-desc mt-4">It is a long established fact that a reader will be of a page when established fact looking at its layout.</p>
+                                    <div class="mt-4 pt-2">
+                                        <a href="#" class="btn btn-outline-custom btn-round">Download Cv</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+<!-- END HOME -->
+
+
 <!-- START ABOUT -->
 <section class="section" id="<?php echo get_field('about_section_id');  ?>">
 	<div class="container">
@@ -62,7 +89,7 @@ $page_id     = get_queried_object_id();
 				<div class="mt-3">
 					<div class="porfile-pic"> 
 						<?php $about_image = get_field('about_image');
-						if('about_image'): ?>
+						if($about_image): ?>
 						<img src="<?php echo $about_image['url']; ?>" alt<?php echo $about_image['url']; ?> class="img-fluid mx-auto d-block img-thumbnail">
 						<?php endif; ?>
 					</div>
@@ -71,7 +98,7 @@ $page_id     = get_queried_object_id();
 			<div class="col-lg-6">
 				<div class="mt-3">
 					<?php $about_text = get_field('about_text');
-					if('about_text'): echo  $about_text; ?>
+					if($about_text): echo  $about_text; ?>
 					
 					<?php endif; ?>
 					<div>
@@ -96,13 +123,13 @@ $page_id     = get_queried_object_id();
 			<div class="col-lg-12">
 				<div class="text-center">
 					<?php $service_title = get_field('service_title');
-					if('service_title'): echo  $service_title; ?>
+					if($service_title): echo  $service_title; ?>
 					
 					
 					<?php endif; ?>
 					
 					<?php $sservice_subtitle = get_field('sservice_subtitle');
-					if('sservice_subtitle'):  ?>
+					if($sservice_subtitle ):  ?>
 					<p class="text-muted mx-auto section-subtitle mt-3"><?php echo  $sservice_subtitle; ?></p>
 					<?php endif; ?>
 				</div>
@@ -135,12 +162,12 @@ $page_id     = get_queried_object_id();
 			<div class="col-lg-12">
 				<div class="text-center">
 					<?php $action_text = get_field('action_text');
-					if('action_text'):  ?>
+					if($action_text):  ?>
 					<h2><?php echo $action_text; ?></h2>
 					<?php endif; ?>
 				</div>
 				<?php $action_link = get_field('action_link');
-					if('action_link'):  ?>
+					if($action_link ):  ?>
 				<div class="text-center mt-4">
 					<a href="<?php echo $action_link['url'] ?>" class="btn btn-custom"><?php echo $action_link['title'] ?></a>
 				</div>
@@ -158,11 +185,11 @@ $page_id     = get_queried_object_id();
 			<div class="col-lg-12">
 				<div class="text-center">
 					<?php $section_title_client = get_field('section_title_client');
-					if('section_title_client'): echo $section_title_client;  ?>
+					if($section_title_client): echo $section_title_client;  ?>
 					
 					<?php endif; ?>
 					<?php $section_subtitle_client = get_field('section_subtitle_client');
-					if('section_subtitle_client'):  ?>
+					if($section_subtitle_client):  ?>
 					<p class="text-muted mx-auto section-subtitle mt-3"><?php echo $section_subtitle_client; ?></p>
 					<?php endif; ?>
 				</div>
@@ -207,11 +234,11 @@ $page_id     = get_queried_object_id();
 			<div class="col-lg-12">
 				<div class="text-center">
 					<?php $section_title_port = get_field('section_title_port');
-					if('section_title_port'): echo $section_title_port;  ?>
+					if($section_title_port): echo $section_title_port;  ?>
 					
 					<?php endif; ?>
 					<?php $section_subtitle_port = get_field('section_subtitle_port');
-					if('section_subtitle_port'):  ?>
+					if( $section_subtitle_port):  ?>
 					<p class="text-muted mx-auto section-subtitle mt-3"><?php echo $section_subtitle_port; ?></p>
 					<?php endif; ?>
 					
@@ -355,82 +382,82 @@ $page_id     = get_queried_object_id();
 		<div class="row justify-content-center">
 			<div class="col-lg-12">
 				<div class="text-center">
-					<h2><span class="font-weight-bold">Contact</span> Us</h2>
-					<p class="text-muted mx-auto section-subtitle mt-3">It is a long established fact that a reader will be of a page when established fact looking at its layout.</p>
+				
+				
+					<?php 
+					
+					$page_id     = get_queried_object_id();
+					
+					$section_title_contact = get_field('section_title_contact', $page_id );
+					if($section_title_contact): echo $section_title_contact;  ?>
+					
+					<?php endif; ?>
+					<?php $section_subtitle_contact = get_field('section_subtitle_contact', $page_id );
+					if($section_subtitle_contact):  ?>
+					<p class="text-muted mx-auto section-subtitle mt-3"><?php echo $section_subtitle_contact; ?></p>
+					<?php endif; ?>
+					
+				
+				
+					
+					
 				</div>
 			</div>
 		</div> 
 		<div class="row mt-5">
 			<div class="col-lg-4">
+				<?php $phone_number = get_field('phone_number', $page_id );
+				if( $phone_number ):  ?>
 				<div class="text-center">
 					<div>
 						<i class="mbri-mobile2 text-custom h1"></i>
 					</div>
 					<div class="mt-3">
-						<h5 class="mb-0 contact_detail-title font-weight-bold">Call Us On</h5>
-						<p class="text-muted">+985 123 7856</p>
+						<h5 class="mb-0 contact_detail-title font-weight-bold">Phone Number</h5>
+						<p class="text-muted">+880 <?php echo $phone_number; ?></p>
 					</div>
 				</div>
+				<?php endif; ?>
 			</div>
 			<div class="col-lg-4">
+			
+			<?php $email_address = get_field('email_address', $page_id );
+				if($email_address):  ?>
 				<div class="text-center">
 					<div>
 						<i class="mbri-letter text-custom h1"></i>
 					</div>
 					<div class="mt-3">
-						<h5 class="mb-0 contact_detail-title font-weight-bold">Email Us At</h5>
-						<p class="text-muted">Website.Kerri@gmail.com</p>
+						<h5 class="mb-0 contact_detail-title font-weight-bold">Email Address</h5>
+						<p class="text-muted"><?php echo  $email_address; ?></p>
 					</div>
 				</div>
+				<?php endif; ?>
 			</div>
 			<div class="col-lg-4">
+				<?php $office_address = get_field('office_address', $page_id );
+				if($office_address):  ?>
 				<div class="text-center">
 					<div>
 						<i class="mbri-pin text-custom h1"></i>
 					</div>
 					<div class="mt-3">
-						<h5 class="mb-0 contact_detail-title font-weight-bold">Visit Office</h5>
-						<p class="text-muted">202, Grasselli Street , Conway.</p>
+						<h5 class="mb-0 contact_detail-title font-weight-bold">Office Address</h5>
+						<p class="text-muted"><?php echo $office_address ; ?></p>
 					</div>
 				</div>
+				<?php endif; ?>
 			</div>
 		</div>
 		<div class="row mt-5">
 			<div class="col-lg-12">
 				<div class="form-kerri">
-					<form>
-						<div class="row">
-							<div class="col-lg-6">
-								<div class="form-group mt-2">
-									<input name="name" id="name" type="text" class="form-control" placeholder="Your Name*" required>
-								</div>
-							</div>
-							<div class="col-lg-6">
-								<div class="form-group mt-2">
-									<input name="email" id="email" type="email" class="form-control" placeholder="Your Email*" required>
-								</div>
-							</div>                                
-						</div>
-						<div class="row">
-							<div class="col-lg-12">
-								<div class="form-group mt-2">
-									<input type="text" class="form-control" id="subject" placeholder="Your Subject.." required/>
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-lg-12">
-								<div class="form-group mt-2">
-									<textarea name="comments" id="comments" rows="4" class="form-control" placeholder="Your message..."></textarea>
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-lg-12 text-right">
-								<a href="#" class="btn btn-custom">Submit</a>
-							</div>
-						</div>
-					</form>
+					<?php 
+					
+					
+					$contact_form = get_field('contact_form', $page_id );
+					if($contact_form): echo $contact_form; endif;  ?>
+					
 				</div>  
 			</div>
 		</div>
