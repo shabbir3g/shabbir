@@ -7,6 +7,11 @@ get_header();
 $page_id     = get_queried_object_id();
 ?> 
  <!-- START HOME -->
+ 
+ <?php $bannerdesign =  get_field('normal_banner','option'); 
+ 
+ if($bannerdesign  == "Curve Banner"): ?>
+ 
  <?php $banner_image = get_field('banner_image');
  if($banner_image): ?>
 <section class="section header-bg-img h-100vh" id="<?php echo get_field('home_section_id');  ?>" style="background-image: url(<?php echo $banner_image['url']; ?>);">
@@ -54,10 +59,13 @@ $page_id     = get_queried_object_id();
 <!-- END HOME -->
 <?php endif; ?>
 
+<?php else: ?>
 
 
- <!-- START HOME 
-        <section class="section header-bg-img h-100vh clippath_none" id="home">
+		<?php $banner_image = get_field('banner_image');
+		 if($banner_image): ?>
+ <!-- START HOME  -->
+        <section class="section header-bg-img h-100vh clippath_none" id="<?php echo get_field('home_section_id');  ?>" style="background-image: url(<?php echo $banner_image['url']; ?>);">
             <div class="bg-overlay"></div>
             <div class="header-table">
                 <div class="header-table-center">
@@ -65,13 +73,34 @@ $page_id     = get_queried_object_id();
                         <div class="row justify-content-center">
                             <div class="col-lg-12">
                                 <div class="text-center header-content mx-auto">
-                                    <h4 class="text-white first-title mb-4">Welcome</h4>
-                                    <h1 class="header-name text-white text-capitalize mb-0">I'M <span class="element font-weight-bold" data-elements="Kerri Deo.,A Graphic Designer.,A Photographer."></span></h1>
-                                    <p class="text-white mx-auto header-desc mt-4">It is a long established fact that a reader will be of a page when established fact looking at its layout.</p>
-                                    <div class="mt-4 pt-2">
-                                        <a href="#" class="btn btn-outline-custom btn-round">Download Cv</a>
-                                    </div>
-                                </div>
+							<?php $welcome_text = get_field('welcome_text');
+							if($welcome_text):  ?>
+							<h4 class="text-white first-title mb-4"><?php echo $welcome_text; ?></h4>
+							<?php endif; ?>
+							
+							<?php $typing_text_s = get_field('typing_text_s');
+							if( $typing_text_s ): ?>
+							<h1 class="header-name text-white text-capitalize mb-0">I'M <span class="element font-weight-bold" data-elements="
+							<?php foreach($typing_text_s as $typing_single): ?>
+							<?php echo $typing_single['typing_text'].', '; ?>
+							
+							<?php endforeach; ?>
+							
+							
+							"></span></h1>
+							<?php endif; ?>
+							<?php $header_banner_text = get_field('header_banner_text');
+							if($header_banner_text): ?>
+							<p class="text-white mx-auto header-desc mt-4"><?php echo $header_banner_text; ?></p>
+							<?php endif; ?>
+							
+							<?php $call_to_action_button = get_field('call_to_action_button');
+							if($call_to_action_button): ?>
+							<div class="mt-4 pt-2">
+								<a target="_blank" href="<?php echo $call_to_action_button['url']; ?>" class="btn btn-outline-custom btn-round"><?php echo $call_to_action_button['title']; ?></a>
+							</div>
+							<?php endif; ?>
+						</div>
                             </div>
                         </div>
                     </div>
@@ -79,7 +108,9 @@ $page_id     = get_queried_object_id();
             </div>
         </section>
 <!-- END HOME -->
+	<?php endif; ?>
 
+<?php endif; ?>
 
 <!-- START ABOUT -->
 <section class="section" id="<?php echo get_field('about_section_id');  ?>">
@@ -102,12 +133,7 @@ $page_id     = get_queried_object_id();
 					
 					<?php endif; ?>
 					<div>
-						<ul class="mb-0 about-social list-inline mt-4">
-							<li class="list-inline-item"><a href="#"><i class="mdi mdi-skype"></i></a></li>
-							<li class="list-inline-item"><a href="#"><i class="mdi mdi-facebook"></i></a></li>
-							<li class="list-inline-item"><a href="#"><i class="mdi mdi-linkedin"></i></a></li>
-							<li class="list-inline-item"><a href="#"><i class="mdi mdi-twitter"></i></a></li>
-						</ul> 
+						<?php echo get_template_part('template-parts/socail-url'); ?>
 					</div>
 				</div>
 			</div>

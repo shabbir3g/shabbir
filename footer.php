@@ -17,14 +17,14 @@
                 <div class="row justify-content-center text-center">
                     <div class="col-md-12">
                         <div class="text-center text-white footer-alt">
-                            <ul class="mb-0 about-social list-inline mt-4">
-								<li class="list-inline-item"><a href="#"><i class="mdi mdi-skype"></i></a></li>
-								<li class="list-inline-item"><a href="#"><i class="mdi mdi-facebook"></i></a></li>
-								<li class="list-inline-item"><a href="#"><i class="mdi mdi-linkedin"></i></a></li>
-								<li class="list-inline-item"><a href="#"><i class="mdi mdi-twitter"></i></a></li>
-							</ul> 
+							<?php echo get_template_part('template-parts/socail-url'); ?>
+                            
 							<br />
-                            <p class="text-muted mb-0">&copy; Copyright | Kerri 2018 All Right Reserved</p>
+							<?php $copy_right_text = get_field('copy_right_text','option'); 
+							if($copy_right_text):  ?>
+                            <p class="text-muted mb-0"><?php echo $copy_right_text; ?></p>
+							<?php endif; ?>
+							
                         </div>
                     </div>
                 </div>
