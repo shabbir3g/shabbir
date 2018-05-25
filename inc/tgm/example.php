@@ -59,18 +59,8 @@ function ready_register_required_plugins() {
 	 */
 	$plugins = array(
 
-		[
-			'name'				=> 'Revolution Slider',
-			'slug'				=> 'revslider',
-			'source'			=> get_template_directory().'/inc/tgm/plugins/revslider.zip',
-			'required'			=> false
-		],
-		[
-			'name'				=> 'Visual Composer',
-			'slug'				=> 'js_composer',
-			'source'			=> get_template_directory().'/inc/tgm/plugins/js_composer.zip',
-			'required'			=> false
-		],
+		
+		
 		[
 			'name'				=> 'Advanced Custom Fields',
 			'slug'				=> 'advanced-custom-fields-pro',
@@ -81,12 +71,6 @@ function ready_register_required_plugins() {
 			'name'				=> 'acf cf7 master',
 			'slug'				=> 'acf-cf7-master',
 			'source'			=> get_template_directory().'/inc/tgm/plugins/acf-cf7-master.zip',
-			'required'			=> false
-		],
-		[
-			'name'				=> 'Acf sliders master',
-			'slug'				=> 'acf-sliders-master',
-			'source'			=> get_template_directory().'/inc/tgm/plugins/acf-sliders-master.zip',
 			'required'			=> false
 		],
 		[
